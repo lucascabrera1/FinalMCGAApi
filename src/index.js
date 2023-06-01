@@ -5,7 +5,7 @@ import {connect} from './connection.js'
 import cors from 'cors'
 import dotenv from 'dotenv'
 
-dotenv.config({path: '../.env'})
+dotenv.config({path: './.env'})
 
 connect()
 
@@ -27,3 +27,5 @@ app.use((req, res, next) => {
 app.listen(port, () =>{
     console.log(`aplicacion ${app.get('appName')} corriendo en localhost puerto ${port}`)
 })
+
+export default app
