@@ -1,21 +1,25 @@
 import express from "express";
-import { Router } from 'express';
-import { ping } from "./Controllers/home";
+import router from './Routes/index.js'
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
 var app = express();
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
+app.use('/', router);
+app.set('appName', 'Recuperatorio MCGA 2021 back-end')
 
-const router = Router();
-router.route('/').get(ping);
-app.use(router);
 
 dotenv.config({path:"./.env"});
 
 let puerto = process.env.PORT;
+
+app.use((req, res, next) => {
+    res.send("paso por la funcion app.use")
+    console.log("paso por la funcion app.use")
+    next()
+})
 
 app.listen(puerto, function() {
         console.log("api de usuarios iniciada en puerto "+puerto);
