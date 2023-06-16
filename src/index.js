@@ -7,8 +7,6 @@ import dotenv from 'dotenv'
 
 dotenv.config({path: './.env'})
 
-connect()
-
 const app = express()
 const port = process.env.PORT
 
@@ -27,5 +25,7 @@ app.use((req, res, next) => {
 app.listen(port, () =>{
     console.log(`aplicacion ${app.get('appName')} corriendo en localhost puerto ${port}`)
 })
+
+connect()
 
 export default app
