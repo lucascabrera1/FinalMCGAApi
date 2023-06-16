@@ -26,6 +26,6 @@ app.listen(port, () =>{
     console.log(`aplicacion ${app.get('appName')} corriendo en localhost puerto ${port}`)
 })
 
-connect()
+//connect()
 
 export default app
