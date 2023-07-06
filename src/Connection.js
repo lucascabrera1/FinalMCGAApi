@@ -13,7 +13,7 @@ const db = mongoose.connection
 export async function connect(){
     try {
         console.log(uri)
-        const db = await mongoose.connect(uri)
+        const db = await mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
         console.log("connected with ", db.connection.name)
     } catch (error) {
         console.error(error)

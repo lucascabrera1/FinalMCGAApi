@@ -3,6 +3,7 @@ import router from './Routes/index.js'
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import { connect } from "./Connection.js";
 
 var app = express();
 app.use(cors());
@@ -24,5 +25,7 @@ app.use((req, res, next) => {
 app.listen(puerto, function() {
         console.log("api de usuarios iniciada en puerto "+puerto);
 })
+
+connect()
 
 export default app;

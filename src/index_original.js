@@ -1,7 +1,7 @@
 
 import express from 'express';
 import router from './Routes/index.js'
-import {connect} from './connection.js'
+//import {connect} from './connection.js'
 import cors from 'cors'
 import dotenv from 'dotenv'
 
