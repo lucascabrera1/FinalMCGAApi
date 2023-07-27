@@ -1,11 +1,11 @@
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
-dotenv.config({path: '../.env'})
+dotenv.config({path: './.env'})
 const stoken = process.env.SECRET
 
 function verifyToken (req, res, next) {
-    const token = req.headers['authorization'];
-    
+    const bearer = req.headers['authorization'];
+    const token = bearer.split(' ')[1]
     if (!token) {
         return res.status(401).json({
             auth: false,
