@@ -19,10 +19,6 @@ let schemaUsuario = new mongoose.Schema ({
         unique: true,
         required: true
     },
-    /*edad: {
-        type: Number,
-        required : true
-    },*/
     nacionalidad: {
         type: String,
         required: true
@@ -48,12 +44,8 @@ schemaUsuario.methods.validatePassword = function (contraseña) {
 }
 
 schemaUsuario.virtual("edad").get(function() {
-    //calcualr edad a partir de this.fechanacimiento
-    //console.log(this.fechanacimiento)
     let hoy = new Date();
-    //console.log(hoy)
     let edad =  hoy.getFullYear() - this.fechanacimiento.getFullYear();
-    //console.log(edad)
     if (hoy.getMonth() < this.fechanacimiento.getMonth()){
         return --edad
     }

@@ -44,7 +44,6 @@ const AddUser = async (req, res) => {
                 expiresIn: 60 * 60 *24
             })
             console.log(usuarioGuardado)
-            //res.json({auth: true, token: token})
             return res.send(usuarioGuardado)
         } else{
             res.status(400).json({
@@ -79,7 +78,9 @@ const DeleteUser = async (req, res) => {
 
 const EditUser = async (req, res) => {
      try {
-        const updatedUser = await User.findByIdAndUpdate({_id: req.params.id}, req.body, {new : true})
+        const user =  new User(req.body)
+        user.contraseña = await user.encryptPassword(user.contraseña)
+        const updatedUser = await User.findByIdAndUpdate({_id: req.params.id}, user, {new : true})
         return res.send(updatedUser)
     } catch (error) {
         return res.status(500).json({message: error.message})

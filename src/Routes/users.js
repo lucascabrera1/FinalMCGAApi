@@ -8,7 +8,6 @@ const router = express()
 router.use(express.json())
 router.use(morgan('short'))
 
-//middleware sin morgan
  router.use((req, res, next) => {
     console.log(`url : ${req.url} method: ${req.method}`)
     console.log("paso por la funcion app.use")

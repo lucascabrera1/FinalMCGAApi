@@ -1,6 +1,5 @@
 import express from "express";
 import router from './Routes/index.js'
-import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import { connect } from "./Connection.js";
